@@ -20,7 +20,7 @@ Movies.create = (newMovie, result) => {
 };
 
 Movies.findById = (id, result) => {
-  sql.query(`SELECT * FROM movies WHERE id = ${id}`, (error, res) => {
+  sql.query("SELECT * FROM movies WHERE id = ?", id, (error, res) => {
     if (error) {
       console.log({ error });
       result(error, null);
@@ -39,10 +39,6 @@ Movies.findById = (id, result) => {
 
 Movies.getAll = (title, result) => {
   let query = "SELECT * FROM movies";
-
-  if (title) {
-    query += ` WHERE title LIKE '%${title}%'`;
-  }
 
   sql.query(query, (error, res) => {
     if (error) {
