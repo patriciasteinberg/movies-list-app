@@ -1,6 +1,7 @@
 import { config } from "dotenv";
 import express from "express";
 import cors from "cors";
+import routes from "./app/routes/movies.routes.js";
 
 config();
 const app = express();
@@ -18,6 +19,8 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to the list of movies application" });
 });
+
+routes(app);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
