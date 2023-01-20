@@ -38,9 +38,7 @@ Movies.findById = (id, result) => {
 };
 
 Movies.getAll = (result) => {
-  let query = "SELECT * FROM movies";
-
-  sql.query(query, (error, res) => {
+  sql.query("SELECT * FROM movies", (error, res) => {
     if (error) {
       console.log({ error });
       result(null, error);
