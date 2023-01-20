@@ -27,8 +27,7 @@ export const createMovie = (req, res) => {
 };
 
 export const findAllMovies = (req, res) => {
-  const title = req.query.title;
-  Movie.getAll(title, (error, data) => {
+  Movie.getAll((error, data) => {
     if (error) {
       res.status(500).send({
         message:

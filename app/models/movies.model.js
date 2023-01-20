@@ -37,7 +37,7 @@ Movies.findById = (id, result) => {
   });
 };
 
-Movies.getAll = (title, result) => {
+Movies.getAll = (result) => {
   let query = "SELECT * FROM movies";
 
   sql.query(query, (error, res) => {
